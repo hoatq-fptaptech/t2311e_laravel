@@ -2,25 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
     public function homepage(){
-        $products = [
-            [
-                "name"=> "Meat",
-                "image"=> "images/product-1.jpg"
-            ],
-            [
-                "name"=> "Banana",
-                "image"=> "images/product-2.jpg"
-            ],
-            [
-                "name"=> "Grape",
-                "image"=> "images/product-4.jpg"
-            ]
-        ];
+        // select * from products
+        // $products = Product::all()->toArray();
+        
+        // select * from products limit 4
+        $products = Product::limit(4)->get()->toArray();
         $categories = [
             [
                 "id"=>1,

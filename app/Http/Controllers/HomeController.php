@@ -13,17 +13,8 @@ class HomeController extends Controller
 
         // select * from products limit 4
         $products = Product::limit(4)->get()->toArray();
-        $categories = [
-            [
-                "id"=>1,
-                "name"=> "Fruit"
-            ],
-            [
-                "id"=>2,
-                "name"=> "Vegestable"
-            ]
-        ];
-        return view('welcome',compact("products","categories"));
+    
+        return view('welcome',compact("products"));
     }
 
     public function about_us(){

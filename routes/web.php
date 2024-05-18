@@ -22,3 +22,4 @@ Route::get("/category/{category:slug}",[HomeController::class,"category"]);
 Route::get("/product/{id}",[HomeController::class,"product"]);
 
 Route::get("/search",[HomeController::class,"search"]);
+Route::post("/add-to-cart/{id}",[HomeController::class,"addToCart"]);

@@ -41,8 +41,20 @@ class HomeController extends Controller
         // get param
             $search = $request->get("search");
         // query db
-
+        $products = Product::where("name","LIKE","%$search%")->get()->toArray();
         // return view
+        return view('welcome',compact("products"));
+    }
 
+    public function addToCart($id,Request $request){
+        $bought_qty = $request->get("bought_qty");
+        $cart = session()->has("cart")?session("cart"):[];
+        if(isset($cart[$id])){
+            $cart[$id] += $bought_qty;
+        }else{
+            $cart[$id] = $bought_qty;
+        }
+        session(["cart"=>$cart]);
+        return redirect()->back();
     }
 }

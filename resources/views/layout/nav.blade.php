@@ -17,8 +17,9 @@
           <a class="nav-link" href="/category/{{$item["slug"]}}">{{$item["name"]}}</a>
         </li>
         @endforeach
-        
-        
+        <li class="nav-item">
+          <a class="nav-link" href="/cart">Cart({{session()->has("cart")?count(session("cart")):0}})</a>
+        </li>
       </ul>
       <form action="/search" method="get" class="d-flex" role="search">
         <input name="search" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">

@@ -5,6 +5,11 @@
 @section("main")
     <div class="container">
         <h1> {{$product["name"]}}</h1>
+        <form action="/add-to-cart/{{$product["id"]}}" method="post">
+            @csrf
+            <input value="1" type="number" name="bought_qty"/>
+            <button type="submit" class="btn btn-primary">Add to cart</button>
+        </form>
         <h2>Các sản phẩm cùng danh mục</h2>
         <div class="row">
             @foreach ($relateds as $item)

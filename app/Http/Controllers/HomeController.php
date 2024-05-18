@@ -22,11 +22,11 @@ class HomeController extends Controller
         return view("about-us");
     }
 
-    public function category($id){
-        $category = Category::findOrFail($id);
+    public function category(Category $category){
+        // $category = Category::findOrFail($id);
         $category = $category->toArray();
         // select * from products where category_id = $id
-        $products = Product::where("category_id",$id)->get()->toArray();
+        $products = Product::where("category_id",$category["id"])->get()->toArray();
         return view("category-page",compact("category","products"));
     }
     

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -19,5 +20,13 @@ class HomeController extends Controller
 
     public function about_us(){
         return view("about-us");
+    }
+
+    public function category($id){
+        $category = Category::findOrFail($id);
+        $category = $category->toArray();
+        // select * from products where category_id = $id
+        $products = Product::where("category_id",$id)->get()->toArray();
+        return view("category-page",compact("category","products"));
     }
 }

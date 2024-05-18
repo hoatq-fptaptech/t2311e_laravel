@@ -16,3 +16,4 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/',[HomeController::class, "homepage"]);
 Route::get("/about-us",[HomeController::class,"about_us"]);
+Route::get("/category/{id}",[HomeController::class,"category"]);

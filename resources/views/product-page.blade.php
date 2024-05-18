@@ -1,12 +1,13 @@
 @extends("layout.layout")
 @section("title")
-    Home Page
+    {{$product["name"]}}
 @endsection
-@section("og-title","Home page")
 @section("main")
     <div class="container">
+        <h1> {{$product["name"]}}</h1>
+        <h2>Các sản phẩm cùng danh mục</h2>
         <div class="row">
-            @foreach ($products as $item)
+            @foreach ($relateds as $item)
             <div class="col-3">
                 <div class="card" style="width: 18rem;">
                     <img src="{{$item["thumbnail"]}}" class="card-img-top" alt="...">

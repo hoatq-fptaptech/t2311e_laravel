@@ -29,4 +29,11 @@ class HomeController extends Controller
         $products = Product::where("category_id",$id)->get()->toArray();
         return view("category-page",compact("category","products"));
     }
+    
+    public function product($id){
+        $product = Product::findOrFail($id);
+        $product = $product->toArray();
+        $relateds = Product::where("category_id",$product["category_id"])->limit(4)->get()->toArray();
+        return view("product-page",compact("product","relateds"));
+    }
 }

@@ -20,3 +20,5 @@ Route::get("/about-us",[HomeController::class,"about_us"]);
 Route::get("/category/{category:slug}",[HomeController::class,"category"]);
 
 Route::get("/product/{id}",[HomeController::class,"product"]);
+
+Route::get("/search",[HomeController::class,"search"]);

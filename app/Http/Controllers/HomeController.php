@@ -36,4 +36,13 @@ class HomeController extends Controller
         $relateds = Product::where("category_id",$product["category_id"])->limit(4)->get()->toArray();
         return view("product-page",compact("product","relateds"));
     }
+
+    public function search(Request $request){
+        // get param
+            $search = $request->get("search");
+        // query db
+
+        // return view
+
+    }
 }
